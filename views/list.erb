@@ -1,0 +1,24 @@
+
+<h2>List Name: <%= @list.name %></h2>
+
+<% if @list.tasks.any? %>
+<ul>
+  <% @list.tasks.each do |task| %>
+
+  <li><%= task.description %>
+  <% end %>
+</ul>
+
+  <% else %>
+
+  <p>Add tasks to this list!</p>
+
+  <% end %>
+
+
+<form action="/lists/<%= @list.id %>" method="post">
+  <label for="description">Description:</label>
+  <input type="text" name="description" id="description">
+
+  <button type="submit">Add task</button>
+</form>
